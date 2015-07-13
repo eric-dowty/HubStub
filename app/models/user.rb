@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_many :orders
   has_many :order_items, through: :orders
 
-  # before_validation :generate_slug
+  before_validation :generate_slug
   before_save       :downcase_email
 
   validates :full_name, presence: true, length: { in: 5..100 },
