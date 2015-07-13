@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_many :orders
   has_many :order_items, through: :orders
 
-  before_validation :generate_slug
+  # before_validation :generate_slug
   before_save       :downcase_email
 
   validates :full_name, presence: true, length: { in: 5..100 },
@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   validates :password, presence: true, on: :create
   validates :password_confirmation, presence: true, on: :create
-  validates :display_name, length: { in: 2..32 }, presence: true,
+  validates :display_name, length: { in: 2..50 }, presence: true,
                            uniqueness: true,
                            format: { with: /\A[a-zA-Z0-9\.\_\-]+\z/, },
                            exclusion: { in: %w(login logout tickets admin venue
