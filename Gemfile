@@ -24,7 +24,7 @@ gem 'poltergeist'
 gem 'populator'
 gem 'unicorn'
 gem 'figaro'
-
+gem 'will_paginate'
 
 group :development, :test do
   gem 'byebug', '~> 3.5.0'

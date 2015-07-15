@@ -61,6 +61,7 @@ class Seed
   end
 
   def generate_events
+    Event.create!(title: "test", description: "test", date: Time.now, start_time: Time.now, approved: true, image_id: 1, venue_id: 1, category_id: 1)
     count = 0
     images = Image.count
     venues = Venue.count
@@ -146,7 +147,7 @@ class Seed
   def generate_orders
     count = 0
     users = User.count
-    Order.populate(50_000) do |order|
+    Order.populate(500_000) do |order|
       order.status = "ordered"
       order.user_id = rand(1..users) 
       order.total_price = rand(1000..100000)
